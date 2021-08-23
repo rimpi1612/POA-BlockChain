@@ -8,6 +8,7 @@ Because the accounts must be approved, we will generate two new nodes with new a
 ./geth --datadir node1 account new
 ./geth --datadir node2 account new
 
+##  Puppeth
 
 2. Next, generate genesis block.
 
@@ -23,7 +24,15 @@ Because the accounts must be approved, we will generate two new nodes with new a
 
     - Complete the rest of the prompts, and when we are back at the main menu, choose the "Manage existing genesis" option.
 
-    - Export genesis configurations. This will fail to create two of the files, but we only need networkname.json.
+   - Export genesis configurations. This will fail to create two of the files, but we only need networkname.json.
+
+   ./puppeth
+
+    ![Running Puppeth](puppeth.PNG)
+
+    ![Running Puppeth2](puppeth2.PNG)
+
+## Initializing and start mining
 
 3. With the genesis block creation completed, we will now initialize the nodes with the genesis' json file.
 
@@ -31,14 +40,24 @@ Because the accounts must be approved, we will generate two new nodes with new a
         ./geth --datadir node1 init networkname.json
         ./geth --datadir node2 init networkname.json
 
+    ![Init nodes](initialize.PNG)
+
 4. Now the nodes can be used to begin mining blocks.
 
     - Run the nodes in separate terminal windows with the commands:
-./geth --datadir node1 --unlock "SEALER_ONE_ADDRESS" --mine --rpc --allow-insecure-unlock
-./geth --datadir node2 --unlock "SEALER_TWO_ADDRESS" --mine --port 30304 --bootnodes "enode://SEALER_ONE_ENODE_ADDRESS@127.0.0.1:30303" --ipcdisable --allow-insecure-unlock
-NOTE: Type your password and hit enter - even if you can't see it visually!
-Your private PoA blockchain should now be running!
+        ./geth --datadir node1 --unlock "SEALER_ONE_ADDRESS" --mine --rpc --allow-insecure-unlock
+        ./geth --datadir node2 --unlock "SEALER_TWO_ADDRESS" --mine --port 30304 --bootnodes "enode://SEALER_ONE_ENODE_ADDRESS@127.0.0.1:30303" --ipcdisable --allow-insecure-unlock
 
-With both nodes up and running, the blockchain can be added to MyCrypto for testing.
+        ![mine node1](node1.PNG)
 
-Open the MyCrypto app, then click Change Network at the bottom left:
+         ![mine node2](node2.PNG)
+
+    
+The private PoA blockchain should now be running!
+
+## MyCrypto
+
+5. Open MyCrypto & Click on "Add Custom Node", then add the custom network      information that was set in the genesis.
+
+    ![mine node1](custome_node.PNG)
+
