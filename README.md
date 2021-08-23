@@ -28,9 +28,9 @@ Because the accounts must be approved, we will generate two new nodes with new a
 
    ./puppeth
 
-    ![Running Puppeth](puppeth.PNG)
+    ![Running Puppeth](/puppeth.PNG)
 
-    ![Running Puppeth2](puppeth2.PNG)
+    ![Running Puppeth2](/puppeth2.PNG)
 
 ## Initializing and start mining
 
@@ -40,7 +40,7 @@ Because the accounts must be approved, we will generate two new nodes with new a
         ./geth --datadir node1 init networkname.json
         ./geth --datadir node2 init networkname.json
 
-    ![Init nodes](initialize.PNG)
+    ![Init nodes](/initialize.PNG)
 
 4. Now the nodes can be used to begin mining blocks.
 
@@ -48,9 +48,9 @@ Because the accounts must be approved, we will generate two new nodes with new a
         ./geth --datadir node1 --unlock "SEALER_ONE_ADDRESS" --mine --rpc --allow-insecure-unlock
         ./geth --datadir node2 --unlock "SEALER_TWO_ADDRESS" --mine --port 30304 --bootnodes "enode://SEALER_ONE_ENODE_ADDRESS@127.0.0.1:30303" --ipcdisable --allow-insecure-unlock
 
-        ![mine node1](node1.PNG)
+        ![mine node1](/node1.PNG)
 
-         ![mine node2](node2.PNG)
+         ![mine node2](/node2.PNG)
 
     
 The private PoA blockchain should now be running!
@@ -59,5 +59,5 @@ The private PoA blockchain should now be running!
 
 5. Open MyCrypto & Click on "Add Custom Node", then add the custom network      information that was set in the genesis.
 
-    ![mine node1](custome_node.PNG)
+    ![mine node1](/custome_node.PNG)
 
